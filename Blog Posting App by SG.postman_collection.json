@@ -1,0 +1,289 @@
+{
+	"info": {
+		"_postman_id": "69fff757-4029-4250-9b7b-55db73361c03",
+		"name": "Blog Posting App by SG",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19652552"
+	},
+	"item": [
+		{
+			"name": "/users",
+			"item": [
+				{
+					"name": "/:id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{workspaceIp}}:8082/v1/users/6707b1db4ff2215f08490a81",
+							"host": [
+								"{{workspaceIp}}"
+							],
+							"port": "8082",
+							"path": [
+								"v1",
+								"users",
+								"6707b1db4ff2215f08490a81"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/auth",
+			"item": [
+				{
+					"name": "/login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"demo-user@gmail.com\",\n    \"password\": \"demoPassword123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{workspaceIp}}:8082/v1/auth/login",
+							"host": [
+								"{{workspaceIp}}"
+							],
+							"port": "8082",
+							"path": [
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"demo\",\n    \"lastname\":\"user\",\n    \"email\": \"demo-user1@gmail.com\",\n    \"password\": \"demoPassword123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{workspaceIp}}:8082/v1/auth/register",
+							"host": [
+								"{{workspaceIp}}"
+							],
+							"port": "8082",
+							"path": [
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/blogs",
+			"item": [
+				{
+					"name": "/",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{workspaceIp}}:8082/v1/blogs",
+							"host": [
+								"{{workspaceIp}}"
+							],
+							"port": "8082",
+							"path": [
+								"v1",
+								"blogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": 10,\n    \"description\":\"desc\"\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{workspaceIp}}:8082/v1/blogs/",
+							"host": [
+								"{{workspaceIp}}"
+							],
+							"port": "8082",
+							"path": [
+								"v1",
+								"blogs",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": 10,\n    \"description\":\"desc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{workspaceIp}}:8082/v1/blogs/6707b1db4ff2215f08490a81",
+							"host": [
+								"{{workspaceIp}}"
+							],
+							"port": "8082",
+							"path": [
+								"v1",
+								"blogs",
+								"6707b1db4ff2215f08490a81"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": ""
+		},
+		{
+			"key": "ip",
+			"value": "13.233.8.95"
+		},
+		{
+			"key": "userid",
+			"value": "600fe5fc1b35ad73eff74920"
+		},
+		{
+			"key": "workspaceIp",
+			"value": "local",
+			"type": "string"
+		}
+	]
+}

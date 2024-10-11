@@ -9,5 +9,5 @@ const router = express.Router();
 
 router.use("/users",userRoute)
 router.use("/auth",authRoute)
-router.use('/blog',blogsRoute)
+router.use('/blogs',blogsRoute)
 module.exports = router;

@@ -1,4 +1,4 @@
-const { required } = require('joi');
+const { required, object } = require('joi');
 const mongoose=require('mongoose');
 /**
  * @def blog schema
@@ -17,11 +17,14 @@ const blogSchema = mongoose.Schema(
             required:true,
             trim:true,
         },
-        description:{
+        content:{
             type:String,
             // required:true,
             default:"No description"
         },
+        location:{
+            type:JSON
+        }
     },
     {
         timestamps:true

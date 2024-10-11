@@ -7,13 +7,18 @@ const auth = require("../../middlewares/auth");
 
 const router = express.Router();
 
+//all
+router.get("/", blogController.getBlogs);
 
-router.get("/", auth,blogController.getBlogs);
 
-router.get("/:blogId",
-    auth,
-    validate(blogValidation.getBlog),
-    blogController.getBlogById);
+router.get(
+  "/users",
+  auth,
+  (req, res, n) => console.log(req.user, n()," hi"),
+  blogController.getBlogByEmail);
+
+//blog id
+router.get("/:blogId", validate(blogValidation.getBlogById), blogController.getBlogById);
 
 router.post(
   "/",

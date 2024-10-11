@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+.jodit-status-bar-link, .jodit-toolbar-button_about, .jodit-ui-group__about
+{
+  display: none;
+}
+
+/* .jodit-ui-group__about , */
+.jodit-ui-group_group_other:last-child,
+.jodit-ui-group_group_info
+{
+  display: none !important;
+}

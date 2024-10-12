@@ -14,6 +14,7 @@ import { fetchLocation } from './api/api';
 
 function App() {
   const [userLocation,setUserLocation]=useState({})
+  const [blogToEdit,setBlogToEdit]=useState(0)
   const [mode, setMode] = useState(localStorage.getItem("theme") || "light");
   const theme = useMemo(() => createTheme(getPallete(mode)), [mode]);
   const [user, setLoggedUser] = useState({user:JSON.parse(localStorage.getItem('user')),isLoggedIn:localStorage.getItem('isLoggedIn')}||{isLoggedIn:false,user:{}});
@@ -31,10 +32,10 @@ function App() {
   },[])
   return (
     <ThemeContext.Provider value={{ mode: mode, setMode: setMode }}>
-    <AuthContext.Provider value={{user,logout,setLoggedUser:function(user,isLoggedIn){setLoggedUser({user,isLoggedIn})}}}>
+    <AuthContext.Provider value={{user,logout,setLoggedUser:function(user,isLoggedIn){setLoggedUser({user,isLoggedIn})},setBlogToEdit,blogToEdit}}>
       <ThemeProvider theme={theme}>
         <Navbar />
-        <Outlet context={{userLocation}}></Outlet>
+        <Outlet context={{userLocation,}}></Outlet>
       </ThemeProvider>
       </AuthContext.Provider>
     </ThemeContext.Provider>

@@ -12,6 +12,7 @@ import { AuthContext } from './utils/AuthContex';
 import CreatePost from './Pages/CreatePost/CreateBlog';
 import MyBlogs from './Pages/MyBlogs/MyBlogs';
 import CreateBlog from './Pages/CreatePost/CreateBlog';
+import EditBlog from './Pages/CreatePost/EditBlog';
 // import reportWebVitals from './reportWebVitals';
 
 const router = createBrowserRouter([
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path:"/myblogs",
         element: <ProtectedRoute><MyBlogs /></ProtectedRoute>
+      },
+      {
+        path:"/edit",
+        element: <ProtectedRoute><EditBlog /></ProtectedRoute>
       },
       {
         path: "/login",

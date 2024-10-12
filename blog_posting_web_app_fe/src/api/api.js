@@ -63,9 +63,9 @@ export const fetchBlogById = async (blogId) => {
         throw e
     }
 }
-export const updateBlogById = async (blog) => {
+export const updateBlogById = async (blogId,blog) => {
     try {
-        const response = await axios.put(`${BACKEND_ENDPOINT}/v1/blogs/${blog._id}`, blog, header())
+        const response = await axios.put(`${BACKEND_ENDPOINT}/v1/blogs/${blogId}`, blog, header())
         return response.data;
     } catch (e) {
         console.error(e)
@@ -74,9 +74,9 @@ export const updateBlogById = async (blog) => {
 }
 export const deleteBlogById = async (id) => {
     try {
-        const response = await axios.get(`${BACKEND_ENDPOINT}/v1/blogs/${id}`, header())
+        const response = await axios.delete(`${BACKEND_ENDPOINT}/v1/blogs/${id}`, header())
         console.log(response.data)
-        return response.data.data;
+        return response.data;
     } catch (e) {
         console.error(e)
         throw e

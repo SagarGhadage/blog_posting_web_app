@@ -39,7 +39,6 @@ export default function Home() {
     let htmlData = ``
     posts.forEach((ele) => htmlData +=
       `<div style="min-height: 100px;width: 80%; background-color: aliceblue;margin: 1% auto; padding: 1% 5%;overflow: scroll;scrollbar-width: none;border:1px solid lightblue ">
-      ${context?.user?.isLoggedIn && ele?.email == context?.user?.user?.email ? '<button class="editbtn" id="editBtn">Edit</button>' : ''}
       <h1 style="text-align:center;">${ele.title}</h1>
     ${ele.content}
       </div>`)

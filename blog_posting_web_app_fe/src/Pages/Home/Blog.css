@@ -3,3 +3,14 @@
     flex-direction: column;
     gap: 10%;
 }
+.editbtn{
+    padding: 10px 20px;
+    background-color: #66b3ff;
+    border: none ;
+    color: #ffffff;
+    font-size: large;
+    border-radius: 5%;
+}
+.editbtn:hover{
+
+}

@@ -9,7 +9,9 @@ import Home from './Pages/Home/Home';
 import { SnackbarProvider } from 'notistack';
 import ProtectedRoute from './utils/ProtectedRoute';
 import { AuthContext } from './utils/AuthContex';
-import CreatePost from './Pages/CreatePost/CreatePost';
+import CreatePost from './Pages/CreatePost/CreateBlog';
+import MyBlogs from './Pages/MyBlogs/MyBlogs';
+import CreateBlog from './Pages/CreatePost/CreateBlog';
 // import reportWebVitals from './reportWebVitals';
 
 const router = createBrowserRouter([
@@ -23,7 +25,11 @@ const router = createBrowserRouter([
       },
       {
         path:"/create",
-        element: <ProtectedRoute><CreatePost /></ProtectedRoute>
+        element: <ProtectedRoute><CreateBlog /></ProtectedRoute>
+      },
+      {
+        path:"/myblogs",
+        element: <ProtectedRoute><MyBlogs /></ProtectedRoute>
       },
       {
         path: "/login",

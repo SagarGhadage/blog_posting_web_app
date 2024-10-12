@@ -1,23 +1,23 @@
 import { Box, Container, Stack, Typography } from '@mui/material'
 import React, { useContext, useEffect, useState } from 'react'
-import { fetchBlogs } from '../../api/api'
+import { fetchBlogs, fetchMyBlogs } from '../../api/api'
 import styles from "./Home.module.css"
 import './Blog.css';
 import { useOutletContext } from 'react-router-dom';
 import { AuthContext } from '../../utils/AuthContex';
 import { useSnackbar } from "notistack";
 
-export default function Home() {
+export default function MyBlogs() {
   const { enqueueSnackbar } = useSnackbar();
 
   const [posts, setPosts] = useState([])
   const userLocation = useOutletContext()
   const context = useContext(AuthContext)
-  console.log(context?.user.user)
+  console.log(context?.user.user,'my')
   // console.log(userLocation.userLocation)
   const fetchPosts = async () => {
     try {
-      let result = await fetchBlogs();
+      let result = await fetchMyBlogs();
       // console.log(result)
       setPosts(result);
     } catch (err) {
@@ -32,7 +32,7 @@ export default function Home() {
 
   useEffect(() => {
     fetchPosts();
-    console.log('fet')
+    // console.log('fet')
   }, [context.user])
 
   useEffect(() => {
@@ -50,8 +50,8 @@ export default function Home() {
 
   return (
     <>
-      <Typography variant="h1" textAlign={'center'} mt={'5%'} component="h1" sx={{ flexGrow: 1, color: 'text.bgdark' }} >
-        Blogs in {userLocation.userLocation.region}
+      <Typography variant="h1" textAlign={'center'} mt={'5%'} mb={'1%'}component="h1" sx={{ flexGrow: 1, color: 'text.bgdark' }} >
+        Blogs created By {context?.user?.user?.email}
       </Typography>
       <section id='postContainer' className={styles.postContainer}>
       </section>

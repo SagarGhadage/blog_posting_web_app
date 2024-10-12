@@ -42,6 +42,17 @@ export const fetchBlogs = async (location) => {
         throw e
     }
 }
+
+export const fetchMyBlogs = async () => {
+    try {
+        const response = await axios.get(`${BACKEND_ENDPOINT}/v1/blogs/users`, header())
+        return response.data;
+
+    } catch (e) {
+        console.error(e)
+        throw e
+    }
+}
 // console.log(fetchBlogs())
 export const fetchBlogById = async (blogId) => {
     try {

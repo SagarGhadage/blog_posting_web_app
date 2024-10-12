@@ -44,6 +44,20 @@ export default function Navbar({ }) {
                 Create Blog
               </Button>
             </IconButton>}
+
+            {user?.isLoggedIn&&<IconButton onClick={() => { 
+                  history('/myblogs')
+            }}>
+              <Button
+                type="button"
+                // className="button"
+                variant="contained"
+                onClick={(e) => {
+                }}
+              >
+                My Blogs
+              </Button>
+            </IconButton>}
           </Typography>
           <Typography variant="span" fontSize={14} lineHeight={1} component="h3" sx={{ display: '-webkit-inline-flex', alignItems: 'center', justifyContent: 'center', height: 'fit-content', color: 'primary' }}>
             {!user?.isLoggedIn && <IconButton onClick={() => { }}>
@@ -77,7 +91,7 @@ export default function Navbar({ }) {
                 // className="button"
                 sx={{ backgroundColor: 'primary.delete' }}
                 variant="contained"
-                onClick={(e) => { logout() }}
+                onClick={(e) => { logout();history('/') }}
               >
                 LOGOUT
               </Button>

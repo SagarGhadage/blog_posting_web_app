@@ -64,6 +64,28 @@ const MyEditor = ({ placeholder }) => {
 		return true
 	};
 
+	const previewBlog = async (blog) => {
+		let htmlData = 
+		`<h1 style='text-align: center;'>${blog.title}</h1>
+		${blog.content}
+		`
+		// `<div style="min-height: 100px;width: 80%; background-color: aliceblue;margin: 5% auto; padding: 5%;overflow: scroll;scrollbar-width: none; ">
+		// </div>`
+
+		document.getElementById('blogPreview').innerHTML = htmlData;
+	}
+
+	useEffect(() => {
+		let location = outletContext.userLocation
+
+		let blog = {
+			title: title,
+			content: content,
+			location: pick(location, ['ip', 'city', 'region', 'country', 'country_name', "country_code", "country_capital", "postal", "timezone"])
+		}
+		previewBlog(blog)
+	}, [content,title])
+
 	return (
 		<div className={style.container}>
 			<TextField id="title" label="Title" value={title} onChange={(e) => setTitle(e.target.value)} variant="outlined" fullWidth />
@@ -86,7 +108,7 @@ const MyEditor = ({ placeholder }) => {
 				Preview
 			</Typography>
 			{/* <div style:{{min-height: 100px;width: 80%; background-color: aliceblue;margin: 5% auto; padding: 5%;overflow: scroll;scrollbar-width: none; "}> */}
-			<div id='blogPreview' style={{marginTop:'3%', minHeight:'100px',width:'90%',backgroundColor:'aliceblue',padding:'5%',overflow:'scroll',}}></div>
+			<div id='blogPreview' style={{ marginTop: '3%', minHeight: '100px', width: '90%', backgroundColor: 'aliceblue', padding: '5%', overflow: 'scroll', }}></div>
 
 		</div>
 

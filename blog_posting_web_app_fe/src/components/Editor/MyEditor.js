@@ -9,7 +9,7 @@ import style from './MyEditor.module.css'
 import { useSnackbar } from "notistack";
 import { useNavigate, Link } from "react-router-dom";
 
-const MyEditor = ({ blog, placeholder }) => {
+const MyEditor = ({ blog, placeholder,children }) => {
 	const editor = useRef(null);
 
 
@@ -116,15 +116,17 @@ const MyEditor = ({ blog, placeholder }) => {
 				onBlur={newContent => setContent(newContent)}
 			// onChange={newContent => {setContent(newContent)}} //performance issue  resolved
 			/>
-
+			{children?
+			children:
 			<IconButton onClick={() => { handleSubmit() }} fullWidth >
 				{/* <Button >  </Button> */}
 				<Button variant="contained" fullWidth>Post Blog</Button>
+			</IconButton>}
 
-			</IconButton>
 			<Typography variant="h1" textAlign={'center'} component="h1" sx={{ flexGrow: 1, color: 'text.bgdark' }} >
 				Preview
 			</Typography>
+			
 			{/* <div style:{{min-height: 100px;width: 80%; background-color: aliceblue;margin: 5% auto; padding: 5%;overflow: scroll;scrollbar-width: none; "}> */}
 			<div id='blogPreview' style={{ marginTop: '3%', minHeight: '100px', width: '90%', backgroundColor: 'aliceblue', padding: '5%', overflow: 'scroll', border: '1px solid lightblue ' }}></div>
 

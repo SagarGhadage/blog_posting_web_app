@@ -88,7 +88,7 @@ const MyEditor = ({ placeholder }) => {
 
 	return (
 		<div className={style.container}>
-			<TextField id="title" label="Title" value={title} onChange={(e) => setTitle(e.target.value)} variant="outlined" fullWidth />
+			<TextField id="title" label="Title" value={title} onChange={(e) => setTitle(e.target.value)} variant="outlined" fullWidth  />
 
 			<JoditEditor
 				ref={editor}
@@ -108,7 +108,7 @@ const MyEditor = ({ placeholder }) => {
 				Preview
 			</Typography>
 			{/* <div style:{{min-height: 100px;width: 80%; background-color: aliceblue;margin: 5% auto; padding: 5%;overflow: scroll;scrollbar-width: none; "}> */}
-			<div id='blogPreview' style={{ marginTop: '3%', minHeight: '100px', width: '90%', backgroundColor: 'aliceblue', padding: '5%', overflow: 'scroll', }}></div>
+			<div id='blogPreview' style={{ marginTop: '3%', minHeight: '100px', width: '90%', backgroundColor: 'aliceblue', padding: '5%', overflow: 'scroll',border:'1px solid lightblue ' }}></div>
 
 		</div>
 

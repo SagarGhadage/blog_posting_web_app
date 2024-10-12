@@ -44,10 +44,10 @@ export default function MyBlogs() {
   }
   const handleDelete = async (e) => {
     try {
-      let res=await deleteBlogById(e.target.name)
+      let res = await deleteBlogById(e.target.name)
       console.log(res)
-      enqueueSnackbar("deleted "+res?.deleted, { variant: "success" });
-      setPosts(posts.filter((ele)=>ele._id!=e.target.name))
+      enqueueSnackbar("deleted " + res?.deleted, { variant: "success" });
+      setPosts(posts.filter((ele) => ele._id != e.target.name))
     } catch (err) {
       if (err.response && err.response.data) {
         enqueueSnackbar(err.response.data.message, { variant: "error" });
@@ -72,8 +72,8 @@ export default function MyBlogs() {
       ${context?.user?.isLoggedIn && ele?.email == context?.user?.user?.email ? `<button class="editbtn" id="editBtn${ele._id}" name="${ele._id}" >Edit</button>` : ''}
       ${context?.user?.isLoggedIn && ele?.email == context?.user?.user?.email ? `<button class="deletebtn" id="deleteBtn${ele._id}" name="${ele._id}" >Delete</button>` : ''}
       </div>
-      <h1 style="text-align:center;">${ele.title}</h1>
-    ${ele.content}
+      <h1 style="text-align:center;">${ele?.title}</h1>
+    ${ele?.content}
       </div>`)
     // console.log(htmlData)
     document.getElementById("postContainer").innerHTML = htmlData;
@@ -90,12 +90,12 @@ export default function MyBlogs() {
           console.log(e.target.name);
           handleDelete(e)
         })
-        
+
       } catch (error) {
         console.log(error)
-        window.location.reload();
+        window.location.reload();// explain later
       }
-      
+
     })
     return () => {
       // posts.forEach((ele) => document.getElementById(`editBtn${ele._id}`).removeEventListener('click'))

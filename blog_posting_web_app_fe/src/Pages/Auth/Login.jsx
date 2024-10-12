@@ -67,7 +67,7 @@ const Login = () => {
 
         persistLogin(response?.tokens, response?.user)
         setLoggedUser(localStorage.getItem('user'),localStorage.getItem('isLoggedIn'))
-        history('/create')
+        // history('/create')
       } catch (err) {
         console.log(err);
 

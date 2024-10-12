@@ -11,7 +11,7 @@ export default function EditBlog({blog}) {
   if(context.blogToEdit===0){history('/myblogs')}
   return (
     <>
-      <Typography variant="h1" textAlign={'center'} component="h1" sx={{ flexGrow: 1, color: 'text.bgdark' }} mt={'1%'} >
+      <Typography variant="h1" textAlign={'center'} component="h1" sx={{ flexGrow: 1, color: 'text.secondary' }} mt={'1%'} >
         Edit Blog
       </Typography>
 

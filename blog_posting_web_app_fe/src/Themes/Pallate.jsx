@@ -5,7 +5,7 @@ export const getPallete = (mode) => ({
       ? {
         primary: {
           main: "#3b82f680",//#66b3ff
-          light: "#72b9ff75",
+          light: "#2666dfe3",
           dark: "#000000",
           bglight: "#fafafa",
           bgdark: "#2666dfe3",
@@ -17,9 +17,9 @@ export const getPallete = (mode) => ({
         },
         text: {
           primary: "#000000",
-          secondary: "rgba(0,0,0,0.6)",
-          light:'#2121219e',
-          dark:'#FAF7FF'
+          secondary: "#2666dfe3",
+          light:'#000000',
+          dark:'#000000'
         },
       }
       : {
@@ -32,8 +32,10 @@ export const getPallete = (mode) => ({
           bg: "#0000",
         },
         text: {
-          primary: "#0000",
-          secondary: "#0000",
+          primary: "#265e95e6",
+          secondary: "#356ea6",
+          light:'#000000',
+          dark:'#000000'
         },
       }),
   },

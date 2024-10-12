@@ -9,7 +9,7 @@ import style from './MyEditor.module.css'
 import { useSnackbar } from "notistack";
 import { useNavigate, Link } from "react-router-dom";
 
-const MyEditor = ({ blog, placeholder,children }) => {
+const MyEditor = ({ blog, placeholder, children }) => {
 	const editor = useRef(null);
 
 
@@ -85,6 +85,8 @@ const MyEditor = ({ blog, placeholder,children }) => {
 	const previewBlog = async (blog) => {
 		let htmlData =
 			`<h1 style='text-align: center;'>${blog.title}</h1>
+      <hr />
+
 		${blog.content}
 		`
 		// `<div style="min-height: 100px;width: 80%; background-color: aliceblue;margin: 5% auto; padding: 5%;overflow: scroll;scrollbar-width: none; ">
@@ -106,7 +108,7 @@ const MyEditor = ({ blog, placeholder,children }) => {
 
 	return (
 		<div className={style.container}>
-			<TextField id="title" label="Title" value={title} onChange={(e) => setTitle(e.target.value)} variant="outlined" fullWidth />
+			<TextField id="title" label="Title" value={title} onChange={(e) => setTitle(e.target.value)} variant="outlined" fullWidth border={'1px solid black'} />
 
 			<JoditEditor
 				ref={editor}
@@ -116,19 +118,20 @@ const MyEditor = ({ blog, placeholder,children }) => {
 				onBlur={newContent => setContent(newContent)}
 			// onChange={newContent => {setContent(newContent)}} //performance issue  resolved
 			/>
-			{children?
-			children:
-			<IconButton onClick={() => { handleSubmit() }} fullWidth >
+			{/* {children?children: */}
+			<IconButton >
 				{/* <Button >  </Button> */}
-				<Button variant="contained" fullWidth>Post Blog</Button>
-			</IconButton>}
+				<Button variant="contained" onClick={() => { handleSubmit() }} fullWidth backgroundColor="primary.main">Post Blog</Button>
+			</IconButton>
+			{children}
 
-			<Typography variant="h1" textAlign={'center'} component="h1" sx={{ flexGrow: 1, color: 'text.bgdark' }} >
+
+			<Typography variant="h1" textAlign={'center'} component="h1" sx={{ flexGrow: 1, color: 'text.secondary' }} >
 				Preview
 			</Typography>
-			
+
 			{/* <div style:{{min-height: 100px;width: 80%; background-color: aliceblue;margin: 5% auto; padding: 5%;overflow: scroll;scrollbar-width: none; "}> */}
-			<div id='blogPreview' style={{ marginTop: '3%', minHeight: '100px', width: '90%', backgroundColor: 'aliceblue', padding: '5%', overflow: 'scroll', border: '1px solid lightblue ' }}></div>
+			<div id='blogPreview' style={{ marginTop: '3%', minHeight: '100px', width: '90%', backgroundColor: 'aliceblue', padding: '2% 5%', overflow: 'scroll', border: '1px solid lightblue ' }}></div>
 
 		</div>
 

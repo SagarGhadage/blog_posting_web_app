@@ -67,12 +67,13 @@ export default function MyBlogs() {
   useEffect(() => {
     let htmlData = ``
     posts.forEach((ele) => htmlData +=
-      `<div style="min-height: 100px;width: 80%; background-color: aliceblue;margin: 1% auto; padding: 1% 5%;overflow: scroll;scrollbar-width: none;border:1px solid lightblue ">
+      `<div style="min-height: 100px;width: 80%; background-color: aliceblue;margin: 1% auto; padding: 3% 5%;overflow: scroll;scrollbar-width: none;border:1px solid lightblue ">
       <div >
       ${context?.user?.isLoggedIn && ele?.email == context?.user?.user?.email ? `<button class="editbtn" id="editBtn${ele._id}" name="${ele._id}" >Edit</button>` : ''}
       ${context?.user?.isLoggedIn && ele?.email == context?.user?.user?.email ? `<button class="deletebtn" id="deleteBtn${ele._id}" name="${ele._id}" >Delete</button>` : ''}
       </div>
       <h1 style="text-align:center;">${ele?.title}</h1>
+      <hr />
     ${ele?.content}
       </div>`)
     // console.log(htmlData)
@@ -105,7 +106,7 @@ export default function MyBlogs() {
 
   return (
     <>
-      <Typography variant="h1" textAlign={'center'} mt={'5%'} mb={'1%'} component="h1" sx={{ flexGrow: 1, color: 'text.bgdark' }} >
+      <Typography variant="h1" textAlign={'center'} mt={'5%'} mb={'1%'} component="h1" sx={{ flexGrow: 1, color: 'text.dark' }} >
         Blogs created By {context?.user?.user?.email}
       </Typography>
       <section id='postContainer' className={styles.postContainer}>

@@ -9,11 +9,12 @@ export default function CreateBlog() {
   const [paymentInfo,setPaymentInfo]=useState({})
   return (
     <>
-      <Typography variant="h1" textAlign={'center'} component="h1" sx={{ flexGrow: 1, color: 'text.bgdark' }} mt={'1%'} >
+      <Typography variant="h1" textAlign={'center'} component="h1" sx={{ flexGrow: 1, color: 'text.secondary' }} mt={'1%'} >
         Create New Blog
       </Typography>
 
-      <MyEditor > <PayPalButtons
+      <MyEditor > 
+        <PayPalButtons
         style={{ layout: 'horizontal' }}
         createOrder={(data, actions) => {
           return actions.order.create({

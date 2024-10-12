@@ -40,6 +40,7 @@ export default function Home() {
     posts.forEach((ele) => htmlData +=
       `<div style="min-height: 100px;width: 80%; background-color: aliceblue;margin: 1% auto; padding: 1% 5%;overflow: scroll;scrollbar-width: none;border:1px solid lightblue ">
       <h1 style="text-align:center;">${ele.title}</h1>
+      <hr />
     ${ele.content}
       </div>`)
     // console.log(htmlData)
@@ -49,7 +50,7 @@ export default function Home() {
 
   return (
     <>
-      <Typography variant="h1" textAlign={'center'} mt={'5%'} component="h1" sx={{ flexGrow: 1, color: 'text.bgdark' }} >
+      <Typography variant="h1" textAlign={'center'} mt={'5%'} component="h1" sx={{ flexGrow: 1, color: 'text.secondary' }} >
         Blogs in {userLocation.userLocation.region}
       </Typography>
       <section id='postContainer' className={styles.postContainer}>

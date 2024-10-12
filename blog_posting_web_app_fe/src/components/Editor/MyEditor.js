@@ -1,6 +1,6 @@
 import React, { useState, useRef, useMemo, useEffect } from 'react';
 import JoditEditor from 'jodit-react';
-import { Button, IconButton, TextField } from '@mui/material';
+import { Button, IconButton, TextField, Typography } from '@mui/material';
 import { useOutletContext } from 'react-router-dom';
 import pick from '../../utils/pick'
 import { postBlogs } from '../../api/api';
@@ -82,6 +82,12 @@ const MyEditor = ({ placeholder }) => {
 				<Button variant="contained" fullWidth>Post Blog</Button>
 
 			</IconButton>
+			<Typography variant="h1" textAlign={'center'} component="h1" sx={{ flexGrow: 1, color: 'text.bgdark' }} >
+				Preview
+			</Typography>
+			{/* <div style:{{min-height: 100px;width: 80%; background-color: aliceblue;margin: 5% auto; padding: 5%;overflow: scroll;scrollbar-width: none; "}> */}
+			<div id='blogPreview' style={{marginTop:'3%', minHeight:'100px',width:'90%',backgroundColor:'aliceblue',padding:'5%',overflow:'scroll',}}></div>
+
 		</div>
 
 	);

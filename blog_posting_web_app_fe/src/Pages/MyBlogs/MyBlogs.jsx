@@ -80,16 +80,22 @@ export default function MyBlogs() {
 
     posts.forEach((ele) => {
       //edit 
-      document.getElementById(`editBtn${ele._id}`).addEventListener('click', (e) => {
-        console.log(e.target.name);
-        handleEdit(e)
-      })
-      //delete 
-      document.getElementById(`deleteBtn${ele._id}`).addEventListener('click', (e) => {
-        console.log(e.target.name);
-        handleDelete(e)
-      })
-
+      try {
+        document.getElementById(`editBtn${ele._id}`).addEventListener('click', (e) => {
+          console.log(e.target.name);
+          handleEdit(e)
+        })
+        //delete 
+        document.getElementById(`deleteBtn${ele._id}`).addEventListener('click', (e) => {
+          console.log(e.target.name);
+          handleDelete(e)
+        })
+        
+      } catch (error) {
+        console.log(error)
+        window.location.reload();
+      }
+      
     })
     return () => {
       // posts.forEach((ele) => document.getElementById(`editBtn${ele._id}`).removeEventListener('click'))

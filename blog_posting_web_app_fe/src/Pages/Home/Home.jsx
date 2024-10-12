@@ -25,7 +25,7 @@ export default function Home() {
       </div>`
     let htmlData = ``
     posts.forEach((ele) => htmlData +=
-    `<div style="min-height: 100px;width: 80%; background-color: aliceblue;margin: 5% auto; padding: 5%;overflow: scroll; ">
+    `<div style="min-height: 100px;width: 80%; background-color: aliceblue;margin: 5% auto; padding: 5%;overflow: scroll;scrollbar-width: none; ">
     ${ele.content}
       </div>`)
     console.log(htmlData)

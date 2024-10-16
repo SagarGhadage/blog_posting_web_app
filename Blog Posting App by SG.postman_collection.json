@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "69fff757-4029-4250-9b7b-55db73361c03",
 		"name": "Blog Posting App by SG",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "19652552"
 	},
 	"item": [
@@ -26,28 +26,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{workspaceIp}}:8082/v1/users/6707b1db4ff2215f08490a81",
-							"host": [
-								"{{workspaceIp}}"
-							],
-							"port": "8082",
-							"path": [
-								"v1",
-								"users",
-								"6707b1db4ff2215f08490a81"
-							]
-						}
+						"url": "{{workspaceIp}}:8082/v1/users/6707b1db4ff2215f08490a81"
 					},
 					"response": []
 				}
@@ -73,18 +58,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{workspaceIp}}:8082/v1/auth/login",
-							"host": [
-								"{{workspaceIp}}"
-							],
-							"port": "8082",
-							"path": [
-								"v1",
-								"auth",
-								"login"
-							]
-						}
+						"url": "{{workspaceIp}}:8082/v1/auth/login"
 					},
 					"response": []
 				},
@@ -105,18 +79,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{workspaceIp}}:8082/v1/auth/register",
-							"host": [
-								"{{workspaceIp}}"
-							],
-							"port": "8082",
-							"path": [
-								"v1",
-								"auth",
-								"register"
-							]
-						}
+						"url": "{{workspaceIp}}:8082/v1/auth/register"
 					},
 					"response": []
 				}
@@ -127,19 +90,58 @@
 			"item": [
 				{
 					"name": "/",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{workspaceIp}}:8082/v1/blogs"
+					},
+					"response": []
+				},
+				{
+					"name": "/ :blogId",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{workspaceIp}}:8082/v1/blogs/670915b4991e75522c639bb9"
+					},
+					"response": []
+				},
+				{
+					"name": "/ :logged in",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    location:{\r\n    \"ip\": \"2401:4900:503b:3c94:c982:5448:3414:9d01\",\r\n    \"network\": \"2401:4900:5038::/45\",\r\n    \"version\": \"IPv6\",\r\n    \"city\": \"Pune\",\r\n    \"region\": \"Maharashtra\",\r\n    \"region_code\": \"MH\",\r\n    \"country\": \"IN\",\r\n    \"country_name\": \"India\",\r\n    \"country_code\": \"IN\",\r\n    \"country_code_iso3\": \"IND\",\r\n    \"country_capital\": \"New Delhi\",\r\n    \"country_tld\": \".in\",\r\n    \"continent_code\": \"AS\",\r\n    \"in_eu\": false,\r\n    \"postal\": \"411007\",\r\n    \"latitude\": 18.6161,\r\n    \"longitude\": 73.7286,\r\n    \"timezone\": \"Asia/Kolkata\",\r\n    \"utc_offset\": \"+0530\",\r\n    \"country_calling_code\": \"+91\",\r\n    \"currency\": \"INR\",\r\n    \"currency_name\": \"Rupee\",\r\n    \"languages\": \"en-IN,hi,bn,te,mr,ta,ur,gu,kn,ml,or,pa,as,bh,sat,ks,ne,sd,kok,doi,mni,sit,sa,fr,lus,inc\",\r\n    \"country_area\": 3287590.0,\r\n    \"country_population\": 1352617328,\r\n    \"asn\": \"AS45609\",\r\n    \"org\": \"Bharti Airtel Ltd. AS for GPRS Service\"\r\n}}"
+						},
+						"url": "{{workspaceIp}}:8082/v1/blogs"
+					},
+					"response": []
+				},
+				{
+					"name": "/: location",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [],
@@ -148,7 +150,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{workspaceIp}}:8082/v1/blogs",
+							"raw": "{{workspaceIp}}:8082/v1/blogs?region=Karnataka",
 							"host": [
 								"{{workspaceIp}}"
 							],
@@ -156,6 +158,12 @@
 							"path": [
 								"v1",
 								"blogs"
+							],
+							"query": [
+								{
+									"key": "region",
+									"value": "Karnataka"
+								}
 							]
 						}
 					},
@@ -166,42 +174,23 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{token}}",
+								"password": "{{token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": 10,\n    \"description\":\"desc\"\n    \n}",
+							"raw": "{\n    \"title\": \"First \",\n    \"content\": \"Blog content\",\n    \n    \"location\": {\n        \"ip\": \"2401:4900:503b:3c94:c982:5448:3414:9d01\",\n        // \"network\": \"2401:4900:5038::/45\",\n        // \"version\": \"IPv6\",\n        \"city\": \"Pune\",\n        \"region\": \"Maharashtra\",\n        // \"region_code\": \"MH\",\n        \"country\": \"IN\",\n        \"country_name\": \"India\",\n        \"country_code\": \"IN\",\n        \"country_code_iso3\": \"IND\",\n        \"country_capital\": \"New Delhi\",\n        // \"country_tld\": \".in\",\n        // \"continent_code\": \"AS\",\n        // \"in_eu\": false,\n        \"postal\": \"411007\",\n        // \"latitude\": 18.6161,\n        // \"longitude\": 73.7286,\n        \"timezone\": \"Asia/Kolkata\"\n        // \"utc_offset\": \"+0530\",\n        // \"country_calling_code\": \"+91\",\n        // \"currency\": \"INR\",\n        // \"currency_name\": \"Rupee\",\n        // \"languages\": \"en-IN,hi,bn,te,mr,ta,ur,gu,kn,ml,or,pa,as,bh,sat,ks,ne,sd,kok,doi,mni,sit,sa,fr,lus,inc\",\n        // \"country_area\": 3287590.0,\n        // \"country_population\": 1352617328,\n        // \"asn\": \"AS45609\",\n        // \"org\": \"Bharti Airtel Ltd. AS for GPRS Service\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "{{workspaceIp}}:8082/v1/blogs/",
-							"host": [
-								"{{workspaceIp}}"
-							],
-							"port": "8082",
-							"path": [
-								"v1",
-								"blogs",
-								""
-							]
-						}
+						"url": "{{workspaceIp}}:8082/v1/blogs"
 					},
 					"response": []
 				},
@@ -210,37 +199,37 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": 10,\n    \"description\":\"desc\"\n}",
+							"raw": "{\n    \"title\": \"edited\",\n    \"content\":\"edited blog\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "{{workspaceIp}}:8082/v1/blogs/6707b1db4ff2215f08490a81",
-							"host": [
-								"{{workspaceIp}}"
-							],
-							"port": "8082",
-							"path": [
-								"v1",
-								"blogs",
-								"6707b1db4ff2215f08490a81"
-							]
-						}
+						"url": "{{workspaceIp}}/v1/blogs/670966910facca0a140f98c0"
+					},
+					"response": []
+				},
+				{
+					"name": "/ :id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{workspaceIp}}:8082/v1/blogs/67094fccc613e00768ed90b8"
 					},
 					"response": []
 				}
